@@ -14,5 +14,3 @@ TC-OTP-004
 Multiple Wrong Attempts
 Expected: Account Temporarily Locked
 _________________________________________________
-API/AccountCreationAPI
-POST /api/v1/account/open
