@@ -1,0 +1,19 @@
+TC-REG-001
+Register Customer Successfully
+Expected: Customer Created
+_____________________________________________________
+TC-REG-002
+Duplicate National ID
+Expected: Registration Rejected
+_____________________________________________________
+TC-REG-003
+Invalid Mobile Number
+Expected: Validation Error
+_____________________________________________________
+TC-REG-004
+Invalid Email
+Expected: Validation Error
+_____________________________________________________
+TC-REG-005
+Underage Customer
+Expected: Registration Rejected
