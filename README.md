@@ -1,3 +1,5 @@
+[![CI](https://github.com/Ibrahim-56/Saudi-Digital-banking-QA-framework/actions/workflows/qa-tests.yml/badge.svg)](https://github.com/Ibrahim-56/Saudi-Digital-banking-QA-framework/actions/workflows/qa-tests.yml)
+
 # Saudi Digital Banking QA Framework
 
 A QA portfolio project documenting a simulated digital-banking account-opening test effort. It combines test planning artifacts with starter Selenium/TestNG automation and a small unit test for the login page object.
