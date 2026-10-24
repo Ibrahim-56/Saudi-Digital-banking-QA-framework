@@ -1,40 +1,43 @@
 # Saudi Digital Banking QA Framework
 
-A portfolio project that documents a simulated digital-banking account-opening test effort. It brings together test planning, example test cases, API notes, SQL validation queries, defect tracking, and sample Selenium/TestNG code.
+A QA portfolio project documenting a simulated digital-banking account-opening test effort. It combines test planning artifacts with starter Selenium/TestNG automation and a small unit test for the login page object.
 
 ## Scope
 
-The documented scenarios cover:
-
-- Login
-- Customer registration
-- National ID validation
-- OTP verification
-- Account opening
-- Dashboard access
+The documented scenarios cover login, customer registration, national ID validation, OTP verification, account opening, and dashboard access.
 
 ## Repository contents
 
-- `Documents-TestPlan.md` — test scope, entry criteria, and exit criteria
+- `Documents-TestPlan.md` — test scope and entry/exit criteria
 - `Documents/` — business requirements
 - `TestCases/` — example login, registration, and OTP test cases
-- `API/` — API notes for account creation and OTP
+- `API/` — account-creation and OTP API notes
 - `SQL/` — sample database validation queries
 - `Defects/` — example defect log
 - `Reports/` — sample test summary
-- `Automation/` and `Autopages/` — sample Selenium/TestNG test and page-object code
+- `Automation/` and `Autopages/` — starter Selenium/TestNG code
+- `pom.xml` — Maven dependencies and test configuration
 
-## Tools represented
+## Run automated checks
 
-Java, Selenium WebDriver, TestNG, Postman, SQL, and GitHub Actions are referenced in the project materials.
+Requires JDK 17 and Maven.
 
-## Current limitations
+```bash
+mvn test
+```
 
-This repository is a demonstration/test-design project, not evidence of testing a live banking system. The Selenium example currently uses a placeholder URL and needs a configured WebDriver and target application before it can run. The repository also does not currently include a Maven `pom.xml`, so the existing workflow should not be treated as a passing CI pipeline.
+The unit test checks that the login page object sends credentials to the expected fields and clicks the login button. The browser-based login test is skipped unless all three environment variables are provided:
 
-## Suggested review path
+- `TARGET_LOGIN_URL`
+- `TEST_USERNAME`
+- `TEST_PASSWORD`
 
-1. Read the test plan and business requirements.
-2. Review the test cases and API notes.
-3. Inspect the SQL validation examples and defect log.
-4. Treat the automation files as starter examples until the target application and build configuration are supplied.
+When a permitted target test application is available, configure those variables to run the browser test. The current default URL in earlier examples was a placeholder, so this repository does not claim a successful end-to-end test against a live banking application.
+
+## CI
+
+GitHub Actions runs `mvn test` on pushes and pull requests targeting `main`. The browser test is expected to be skipped when target credentials and URL are not configured; the page-object unit test should run independently.
+
+## Scope and limitations
+
+This is a test-design and automation portfolio exercise, not evidence of testing a real bank or production banking system. The scenarios and sample artifacts should be adapted and validated against an authorized test environment before being used for actual delivery.
